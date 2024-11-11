@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author kabou
- *
- */
-module finalproject {
-}

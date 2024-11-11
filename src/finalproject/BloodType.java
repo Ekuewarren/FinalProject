@@ -1,16 +1,22 @@
 package finalproject;
 
+//import java.util.Objects;
+
+
 public class BloodType {
     private BloodGroup bloodGroup;
-    private String rhFactor; // e.g., "+", "-"
+    private String rhFactor;
 
     public BloodType(BloodGroup bloodGroup, String rhFactor) {
         this.bloodGroup = bloodGroup;
         this.rhFactor = rhFactor;
     }
 
-    @Override
-    public String toString() {
-        return bloodGroup + rhFactor;
+    public BloodGroup getBloodGroup() {
+        return bloodGroup;
+    }
+
+    public String getRhFactor() {
+        return rhFactor;
     }
 }

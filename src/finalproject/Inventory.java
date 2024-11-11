@@ -1,15 +1,14 @@
 package finalproject;
 
+import java.util.ArrayList; import java.util.List;
+//import java.time.LocalDate;
+  
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 public class Inventory {
-    private List<BloodProduct> products;
-
-    public Inventory() {
-        this.products = new ArrayList<>();
-    }
+    private List<BloodProduct> products = new ArrayList<>();
 
     public void addProduct(BloodProduct product) {
         products.add(product);
@@ -19,19 +18,25 @@ public class Inventory {
         return products;
     }
 
+    public void generateReport() {
+        if (products.isEmpty()) {
+            System.out.println("No products in inventory.");
+            return;
+        }
+        System.out.println("Inventory Report:");
+        for (BloodProduct product : products) {
+            System.out.println("Blood Group: " + product.getBloodType().getBloodGroup() + 
+                ", Rh Factor: " + product.getBloodType().getRhFactor() +
+                ", Expiration Date: " + product.getExpirationDate().getDate());
+        }
+    }
+
     public void reportExpiredProducts() {
         for (BloodProduct product : products) {
-            if (product.isExpired()) {
-                System.out.println("Expired Product: " + product);
+            if (product.getExpirationDate().getDate().isBefore(java.time.LocalDate.now())) {
+                System.out.println("Expired: " + product.getBloodType().getBloodGroup() + 
+                                   " " + product.getBloodType().getRhFactor());
             }
         }
     }
-
-    public void generateReport() {
-        System.out.println("Inventory Report:");
-        for (BloodProduct product : products) {
-            System.out.println(product);
-        }
-    }
 }
-

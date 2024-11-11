@@ -1,6 +1,11 @@
 package finalproject;
 
+//import java.time.LocalDate;
+
+
 import java.time.LocalDate;
+
+
 
 public class ExpirationDate {
     private LocalDate date;
@@ -12,14 +17,4 @@ public class ExpirationDate {
     public LocalDate getDate() {
         return date;
     }
-
-    public boolean isExpired() {
-        return LocalDate.now().isAfter(date);
-    }
-
-    @Override
-    public String toString() {
-        return date.toString();
-    }
 }
-

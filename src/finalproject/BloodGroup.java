@@ -1,22 +1,16 @@
 package finalproject;
 
-public class BloodGroup {
-    private String groupName;
+//import javax.swing.ComboBoxModel;
 
-    public BloodGroup(String groupName) {
-        this.groupName = groupName;
-    }
-
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    @Override
-    public String toString() {
-        return groupName;
-    }
+public enum BloodGroup {
+    A, B, AB, O;
 }
+
+
+
+/*
+ * I used  enum for BloodGroup to ensure that only valid blood type can be used,
+ * and to reduce the risk of bugs.
+ 
+ */
+

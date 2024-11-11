@@ -3,27 +3,34 @@ package finalproject;
 
 import java.time.LocalDate;
 
+
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         Inventory inventory = new Inventory();
 
-        // Create blood groups and types
-        BloodGroup bgA = new BloodGroup("A");
-        BloodType btAPlus = new BloodType(bgA, "+");
+        // Create sample blood products
+        BloodProduct product1 = new BloodProduct(
+                new BloodType(BloodGroup.A, "+"),
+                new ProcessingDate(LocalDate.now()),
+                new ExpirationDate(LocalDate.now().plusDays(30)) // Use ExpirationDate
+        );
 
-        // Create processing and expiration dates
-        ProcessingDate processingDate = new ProcessingDate(LocalDate.now());
-        ExpirationDate expirationDate = new ExpirationDate(LocalDate.now().plusDays(30));
+        BloodProduct product2 = new BloodProduct(
+                new BloodType(BloodGroup.O, "-"),
+                new ProcessingDate(LocalDate.now()),
+                new ExpirationDate(LocalDate.now().minusDays(1)) // Use ExpirationDate
+        );
 
-        // Create blood product
-        BloodProduct productA = new BloodProduct(bgA, btAPlus, processingDate, expirationDate);
-        inventory.addProduct(productA);
+        // Add products to the inventory
+        inventory.addProduct(product1);
+        inventory.addProduct(product2);
 
-        // Generate report
+        // Generate the inventory report
         inventory.generateReport();
 
-        // Check for expired products
+        // Report expired products
         inventory.reportExpiredProducts();
     }
 }
-
